@@ -4,9 +4,11 @@
       <label class="text-field__label">{{ title }}</label>
       <div class="select">
         <select
-         :value="modelValue"
-         @input="$emit('update:modelValue',$event.target.value)"
-         name="format" id="format">
+          :value="modelValue"
+          @input="$emit('update:modelValue', $event.target.value)"
+          name="format"
+          id="format"
+        >
           <option value="Создание">Создание</option>
           <option value="Остальное">Остальное</option>
         </select>

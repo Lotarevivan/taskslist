@@ -1,7 +1,7 @@
 <template>
   <div class="input__file_container">
     <div class="input__file">
-      <div class="input__file_drop"  @drop.prevent="dropFile" @dragover.prevent>
+      <div class="input__file_drop" @drop.prevent="dropFile" @dragover.prevent>
         <p class="drop-title">Загрузить файл</p>
         <p class="drop-text">
           Выберите или перетащите один или несколько файлов
@@ -69,32 +69,32 @@ export default {
   },
   methods: {
     dropFile(e) {
-      const droppedFiles= e.dataTransfer.files
+      const droppedFiles = e.dataTransfer.files
       if (!droppedFiles) return
       this.filesArray.push(...droppedFiles)
     },
     openModalDialog(item) {
-      this.modalIsOpen= true
-      this.removeCandidate= item
+      this.modalIsOpen = true
+      this.removeCandidate = item
     },
     startUploadFile() {
       this.$refs.inputFile.click()
     },
     getFiles(e) {
       // Получим файлы из инпута
-      const files= e.target.files
+      const files = e.target.files
       if (files) {
         this.filesArray.push(...files)
       }
     },
     modalConfirmed() {
-      this.filesArray= this.filesArray.filter(
+      this.filesArray = this.filesArray.filter(
         (el) => el !== this.removeCandidate
       )
-      this.modalIsOpen= false
+      this.modalIsOpen = false
     },
     modalClosed() {
-      this.modalIsOpen= false
+      this.modalIsOpen = false
     },
   },
   computed: {
@@ -103,14 +103,14 @@ export default {
       return this.filesArray.map((el) => el.name).join(';')
     },
   },
-  watch:{
+  watch: {
     filesArray: {
       handler(newValue) {
-        this.$emit('sendFiles',newValue)
+        this.$emit('sendFiles', newValue)
       },
-      deep: true
-    }
-  }
+      deep: true,
+    },
+  },
 }
 </script>
 

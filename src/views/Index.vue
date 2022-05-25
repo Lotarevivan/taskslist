@@ -1,13 +1,13 @@
 <template>
   <div>
     <div class="add_task">
-    <button-custom @click="addNewTask" class="btn-blue">
-      <template #icon>
-        <img src="@img/plus.svg" alt="plus" />
-      </template>
-      Новое задание
-    </button-custom>
-   </div> 
+      <button-custom @click="addNewTask" class="btn-blue">
+        <template #icon>
+          <img src="@img/plus.svg" alt="plus" />
+        </template>
+        Новое задание
+      </button-custom>
+    </div>
     <task-list></task-list>
   </div>
 </template>
@@ -20,17 +20,16 @@ export default {
     taskList,
     buttonCustom,
   },
-  methods:{
-    addNewTask(){
+  methods: {
+    addNewTask() {
       this.$router.push('/create')
-    }
-  }
+    },
+  },
 }
 </script>
 
 <style>
-.add_task{
-  margin:40px 0;
+.add_task {
+  margin: 40px 0;
 }
-
 </style>

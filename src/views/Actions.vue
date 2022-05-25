@@ -85,7 +85,6 @@ export default {
         this.dynamicComponents[this.indexActiveComponent + 1]
     },
     prevStep() {
-      console.log('nazad')
       //индекс текущей вкладки
       this.activeComponent =
         this.dynamicComponents[this.indexActiveComponent - 1]
@@ -94,4 +93,3 @@ export default {
 }
 </script>
 
-<style></style>

@@ -33,26 +33,24 @@
         </template>
         Сохранить
       </button-custom>
-      <button-custom
-       class="btn-white"
-       @click="modalIsOpen=true"
-       >
+      <button-custom class="btn-white" @click="modalIsOpen = true">
         <template #icon>
           <cancel> </cancel>
         </template>
         Отмена
       </button-custom>
     </div>
-     <modal
-     
+    <modal
       :isOpen="modalIsOpen"
       @modalConfirmed="modalConfirmed"
       @modalClosed="modalClosed"
     >
-    Вернуться к списку задач?
-    <template v-slot:content>Lorem ipsum dolor sit amet consectetur.</template>
-    <template v-slot:info>&nbsp;</template>
-    <template v-slot:ok>К списку</template>
+      Вернуться к списку задач?
+      <template v-slot:content
+        >Lorem ipsum dolor sit amet consectetur.</template
+      >
+      <template v-slot:info>&nbsp;</template>
+      <template v-slot:ok>К списку</template>
     </modal>
   </div>
 </template>
@@ -71,7 +69,7 @@ export default {
     arrowRight,
     save,
     cancel,
-    modal
+    modal,
   },
   props: {
     nextDisabled: {
@@ -83,9 +81,9 @@ export default {
     },
   },
   $emits: ['saveForm', 'nextStep', 'prevStep'],
-  data(){
-    return{
-      modalIsOpen:false
+  data() {
+    return {
+      modalIsOpen: false,
     }
   },
   methods: {
@@ -98,12 +96,12 @@ export default {
     prevStep() {
       this.$emit('prevStep')
     },
-    modalClosed(){
-      this.modalIsOpen=false
+    modalClosed() {
+      this.modalIsOpen = false
     },
-    modalConfirmed(){
+    modalConfirmed() {
       this.$router.push('/')
-    }
+    },
   },
 }
 </script>

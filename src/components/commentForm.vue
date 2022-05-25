@@ -33,31 +33,33 @@ export default {
     textArea,
     buttonCustom,
   },
+  emits: ['passSavemethod'],
   data() {
     return {
       commentArray: [],
-      newComment: '12312312',
-      currentTaskId:null
+      newComment: '',
+      currentTaskId: null,
     }
   },
   methods: {
     SetComment() {
       if (this.newComment.length === 0) return
-      const commentObj= {
+      const commentObj = {
         comment: this.newComment,
         date: new Date(),
       }
       this.commentArray.push(commentObj)
-      this.newComment= ''
+      this.newComment = ''
     },
 
     saveForm() {
-      console.log(this.commentArray)
+      // отправка на сервер
+      // console.log(this.commentArray)
     },
   },
   activated() {
-    if(this.$route.query.task){
-      this.currentTaskId=this.$route.query.task
+    if (this.$route.query.task) {
+      this.currentTaskId = this.$route.query.task
     }
     this.$emit('passSavemethod', this.saveForm)
   },

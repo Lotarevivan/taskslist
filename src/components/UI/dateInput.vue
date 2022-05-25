@@ -10,7 +10,7 @@
         :value="modelValue"
         @change="FormatDate"
       />
-     <img class="date-field-img" src="@img/calendar.svg" alt="" >
+      <img class="date-field-img" src="@img/calendar.svg" alt="" />
     </div>
   </div>
 </template>
@@ -18,7 +18,7 @@
 <script>
 import flatpickr from 'flatpickr'
 import { Russian } from 'flatpickr/dist/l10n/ru.js'
-Russian.months.shorthand= [
+Russian.months.shorthand = [
   // Переопределим согласно макету
   'января',
   'февраля',
@@ -53,16 +53,14 @@ export default {
   methods: {
     FormatDate(e) {
       this.$emit('update:modelValue', e.target.value)
-      console.log(this.pikerInstance.parseDate(e.target.value,'d/M/Y'))
-    },
+    }
   },
   mounted() {
-    this.pikerInstance= flatpickr(this.$refs.datePiker, {
+    this.pikerInstance = flatpickr(this.$refs.datePiker, {
       locale: Russian,
       dateFormat: 'd M Y',
     })
-    
-  },
+  }
 }
 </script>
 
@@ -70,7 +68,7 @@ export default {
 .date-field {
   font-size: 14px;
   color: #10171e;
-  position:relative;
+  position: relative;
 }
 .date-field__label {
   display: block;
@@ -89,14 +87,14 @@ export default {
   border-radius: 4px;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
-.date-field-img{
+.date-field-img {
   position: absolute;
-  left: calc(100% - 20px - 12px) ;
-  bottom:10px;
+  left: calc(100% - 20px - 12px);
+  bottom: 10px;
   z-index: -1;
 }
 .flatpickr-input[readonly] {
-    cursor: pointer;
-    background: transparent;
+  cursor: pointer;
+  background: transparent;
 }
 </style>

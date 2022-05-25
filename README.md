@@ -1,5 +1,17 @@
 # taskslist
 
+## Концепция
+Три формы ввода реализованы через keep-alaive dynamic components.
+|Родитель
+|___Верхние табы
+|
+|___Стрелки и сохранить
+|
+|___Компонент форм
+
+При переходе по компонентам в хуке activated прокидываем метод формы в родительский компонент, таким образом находясь на текущей вкладке кнопка сохранить вызывает метод сохранения этой же вкладки.
+
+
 ## Project setup
 ```
 npm install
@@ -14,11 +26,3 @@ npm run serve
 ```
 npm run build
 ```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

@@ -1,12 +1,12 @@
 <template>
-    <div class="text-area-field">
-      <label class="text-area-field__label">{{ title }}</label>
-      <textarea 
-         class="text-area-field__input"
-        :value="modelValue"
-        @input="$emit('update:modelValue',$event.target.value)"
-      />
-    </div>
+  <div class="text-area-field">
+    <label class="text-area-field__label">{{ title }}</label>
+    <textarea
+      class="text-area-field__input"
+      :value="modelValue"
+      @input="$emit('update:modelValue', $event.target.value)"
+    />
+  </div>
 </template>
 
 <script>
@@ -20,7 +20,7 @@ export default {
       type: String,
       default: 'placeholder',
     },
-    modelValue:String
+    modelValue: String,
   },
 }
 </script>
@@ -30,7 +30,6 @@ export default {
   font-size: 14px;
   color: #10171e;
   height: 100%;
-  
 }
 .text-area-field__label {
   display: block;

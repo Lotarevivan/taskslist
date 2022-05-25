@@ -1,4 +1,5 @@
 function getRandomInt() {
+  //сгенерить айди
   return Math.floor(Math.random() * 1000)
 }
 
@@ -14,8 +15,9 @@ async function createTask(task) {
   //     method:'POST'
   // })
   // Ожидается что вернется респонс с добавленным айди для дальнеший манипуляций
-  task.id= getRandomInt()
+  task.id = getRandomInt()
   return new Promise((resolve, reject) => {
+    //имитация отправки
     setTimeout(() => {
       if (Math.random() > 0.01) {
         resolve(task)
@@ -47,8 +49,15 @@ async function deleteTask(taskId) {
   })
 }
 
+/**
+ * документы к задаче.
+ *
+ * @param {taskId}  айди задания.
+ * @param {files}  массив файлов.
+ * @return {Promise} респонс.
+ */
 async function addFilesToTask(taskId, files) {
-  // let form= new FormData();
+  // let form = new FormData();
   // form.append('files', files);
   // form.append('taslID', taskId);
   // return fetch(`/comments`,{ // допустим

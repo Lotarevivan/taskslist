@@ -47,6 +47,7 @@ export default {
     textArea,
     selectInput,
   },
+  emits: ['passProp', 'passSavemethod'],
   data() {
     return {
       taskName: {
@@ -95,7 +96,7 @@ export default {
         .then((res) => {
           const localTasks = localStorage.getItem('taskList')
           this.$router.push({ query: { task: res.id } })
-          if (!localTasks) {
+          if (localTasks === 'null') {
             localStorage.setItem('taskList', JSON.stringify([res]))
           } else {
             const updatedTask = JSON.parse(localTasks)
@@ -109,11 +110,13 @@ export default {
     },
     async loadSettingsById(id) {
       if (localStorage.getItem('taskList')) {
-        const settings = JSON.parse(localStorage.getItem('taskList')).filter(el=> el.id === parseInt(id))[0]
-        this.taskName.value=settings.name
-        this.taskDate.value=settings.dateEnd
-        this.taskDescription.value=settings.description
-        this.taskStatus.value=settings.status
+        const settings = JSON.parse(localStorage.getItem('taskList')).filter(
+          (el) => el.id === parseInt(id)
+        )[0]
+        this.taskName.value = settings.name
+        this.taskDate.value = settings.dateEnd
+        this.taskDescription.value = settings.description
+        this.taskStatus.value = settings.status
       }
     },
   },

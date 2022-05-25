@@ -25,26 +25,23 @@ export default {
       type: String,
     },
   },
-  emits:['choseStep'],
+  emits: ['choseStep'],
   data() {
     return {
       menu: [
         {
           id: 1,
           title: 'Основные настройки',
-          active: true,
           nameComponent: 'mainSettingsForm',
         },
         {
           id: 2,
           title: 'Документы',
-          active: false,
           nameComponent: 'documentsForm',
         },
         {
           id: 3,
           title: 'Комментарии',
-          active: false,
           nameComponent: 'commentForm',
         },
       ],

@@ -11,6 +11,7 @@ export default {
   components: {
     fileInput,
   },
+  emits: ['passSavemethod'],
   data() {
     return {
       files: [],
@@ -19,11 +20,10 @@ export default {
   },
   methods: {
     sendFiles(files) {
-      console.log(files)
-      this.files= files
+      this.files = files
     },
     async saveForm() {
-      addFilesToTask(this.currentTaskId,this.files)
+      addFilesToTask(this.currentTaskId, this.files)
         .then((res) => {
           console.log(res)
         })
@@ -34,7 +34,7 @@ export default {
   },
   activated() {
     if (this.$route.query.task) {
-      this.currentTaskId= this.$route.query.task
+      this.currentTaskId = this.$route.query.task
     }
     this.$emit('passSavemethod', this.saveForm)
   },
