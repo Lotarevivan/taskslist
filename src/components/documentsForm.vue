@@ -22,14 +22,20 @@ export default {
     sendFiles(files) {
       this.files = files
     },
+
     async saveForm() {
-      addFilesToTask(this.currentTaskId, this.files)
-        .then((res) => {
-          console.log(res)
-        })
-        .catch((e) => {
-          console.log(e)
-        })
+      if (this.$route.name === 'Modify') {
+        // updateMethod
+      } else {
+        //create Method
+        addFilesToTask(this.currentTaskId, this.files)
+          .then((res) => {
+            console.log(res)
+          })
+          .catch((e) => {
+            console.log(e)
+          })
+      }
     },
   },
   activated() {

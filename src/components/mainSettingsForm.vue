@@ -92,21 +92,26 @@ export default {
         description: this.taskDescription.value,
         status: this.taskStatus.value,
       }
-      createTask(newTask)
-        .then((res) => {
-          const localTasks = localStorage.getItem('taskList')
-          this.$router.push({ query: { task: res.id } })
-          if (localTasks === 'null') {
-            localStorage.setItem('taskList', JSON.stringify([res]))
-          } else {
-            const updatedTask = JSON.parse(localTasks)
-            updatedTask.push(res)
-            localStorage.setItem('taskList', JSON.stringify(updatedTask))
-          }
-        })
-        .catch((e) => {
-          console.log(e)
-        })
+      if (this.$route.name === 'Modify') {
+        // updateMethod
+      } else {
+        //createmethod
+        createTask(newTask)
+          .then((res) => {
+            const localTasks = localStorage.getItem('taskList')
+            this.$router.push({ query: { task: res.id } })
+            if (localTasks === 'null') {
+              localStorage.setItem('taskList', JSON.stringify([res]))
+            } else {
+              const updatedTask = JSON.parse(localTasks)
+              updatedTask.push(res)
+              localStorage.setItem('taskList', JSON.stringify(updatedTask))
+            }
+          })
+          .catch((e) => {
+            console.log(e)
+          })
+      }
     },
     async loadSettingsById(id) {
       if (localStorage.getItem('taskList')) {

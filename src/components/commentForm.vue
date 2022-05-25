@@ -53,6 +53,11 @@ export default {
     },
 
     saveForm() {
+      if (this.$route.name === 'Modify') {
+        // updateMethod
+      } else {
+        //createMethod
+      }
       // отправка на сервер
       // console.log(this.commentArray)
     },
