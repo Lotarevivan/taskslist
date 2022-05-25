@@ -1,26 +1,48 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="layout">
+    <router-view />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style lang="scss">
+@import '~flatpickr/dist/flatpickr.min.css';
+.layout {
+  max-width: 1170px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  // -webkit-touch-callout: none;
+  // -webkit-user-select: none;
+  //  -khtml-user-select: none;
+  //    -moz-user-select: none;
+  //     -ms-user-select: none;
+  //         user-select: none;
+}
+
+@font-face {
+  font-family: 'Geometria';
+  src: local(Geometria Regular), url(./assets/fonts/Geometria.woff);
+}
+
+body {
+  font-family: 'Geometria';
+  min-height: 100vh;
+}
+
+hr {
+  border: none;
+  background-color: #dfe3e7;
+  height: 2px;
 }
 </style>
